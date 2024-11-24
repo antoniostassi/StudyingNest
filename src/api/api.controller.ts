@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, Query } from '@nestjs/common';
 
 @Controller('api')
 export class ApiController {
@@ -12,5 +12,10 @@ export class ApiController {
   @Get('test/:id')
   getTest(@Param() params: any): string {
     return `Il parametro è ${params.id}`;
+  }
+
+  @Get('query')
+  getQuery(@Query('type') type: string) {
+    console.log(type);
   }
 }
