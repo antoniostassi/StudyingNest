@@ -1,5 +1,5 @@
-import { Controller, Get, Param, Query } from '@nestjs/common';
-
+import { Controller, Get, HttpStatus, Param, Query, Res } from '@nestjs/common';
+import { Response } from 'express';
 @Controller('api')
 export class ApiController {
   @Get('date') // Route GET /api/date
@@ -9,8 +9,8 @@ export class ApiController {
   }
 
   @Get('test/:id')
-  getTest(@Param() params: any): string {
-    return `Il parametro è ${params.id}`;
+  getTest(@Param() params: any, @Res() res: Response) {
+    res.status(HttpStatus.OK).json(['ID:' + params.id]);
   }
 
   @Get('query')
