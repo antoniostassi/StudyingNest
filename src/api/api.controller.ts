@@ -5,7 +5,6 @@ export class ApiController {
   @Get('date') // Route GET /api/date
   getDate(): Date {
     const currentDate = new Date();
-    console.log(currentDate);
     return currentDate;
   }
 
