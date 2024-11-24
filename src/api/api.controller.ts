@@ -10,7 +10,11 @@ export class ApiController {
 
   @Get('test/:id')
   getTest(@Param() params: any, @Res() res: Response) {
-    res.status(HttpStatus.OK).json(['ID:' + params.id]);
+    res.status(HttpStatus.OK).json([
+      {
+        id: params.id,
+      },
+    ]);
   }
 
   @Get('query')
