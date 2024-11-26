@@ -1,37 +1,34 @@
 import { Controller, Delete, Get, Param, Patch, Post, Req } from '@nestjs/common';
+import { ApartmentService } from './apartment.service';
 
 @Controller('apartment')
 export class ApartmentController {
 
+    constructor(private apartmentService: ApartmentService) {}
+
     @Get()
     index() {
-        return 'Endpoint to get all apartments';
+        return this.apartmentService.index();
     }
-
-    /* @Get('/:apartmentId')
-    show(@Param() apartmentId:number) {
-        return {message:'Ciao!', apartmentId};
-    } */
 
     @Get('/:apartmentId')
     show(@Param() params: { apartmentId: number }) {
-        return 'Endpoint to get single apartment at ID: ' + params.apartmentId; // oppure return params
+        return this.apartmentService.show(params.apartmentId);
     }
 
     @Post()
     store(@Req() req: Request) {
-        console.log(req.headers);
-        return req.body; // The body of the request
+        return this.apartmentService.store(req);
     }
 
     @Patch('/:apartmentId')
     update(@Req() req: Request, @Param() params: { apartmentId: number }) {
-        return 'Endpoint to update ' + params.apartmentId + ' with body:' + req.body;
+        return this.apartmentService.update(params.apartmentId, req);
     }
 
     @Delete('/:apartmentId')
     delete(@Param() params: { apartmentId: number }) {
-        return 'Endpoint to delete ' + params.apartmentId;
+        return this.apartmentService.delete(params.apartmentId);
     }
 
     // @Req | Il body è ciò che manda il frontend. 
