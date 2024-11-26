@@ -1,12 +1,33 @@
+import { IsBoolean, IsNumber, IsString } from "class-validator";
+
 export class CreateApartmentDto {
+    @IsString()
     title: string;
-    rooms: number;
-    beds: number;
-    bathrooms: number;
-    apartment_size: number;
+
+    @IsString()
     address: string;
-    latitude: number;
-    longitude: number;
+
+    @IsString()
     image: string;
+
+    @IsNumber()
+    rooms: number;
+
+    @IsNumber()
+    beds: number;
+
+    @IsNumber()
+    bathrooms: number;
+
+    @IsNumber()
+    apartment_size: number;
+
+    @IsNumber()
+    latitude: number;
+
+    @IsNumber()
+    longitude: number;
+
+    @IsBoolean()
     is_visible: boolean;
 }
