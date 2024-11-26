@@ -1,7 +1,7 @@
 import { Controller, Delete, Get, Param, Patch, Post, Req } from '@nestjs/common';
 import { ApartmentService } from './apartment.service';
 
-@Controller('apartment')
+@Controller('apartments')
 export class ApartmentController {
 
     constructor(private apartmentService: ApartmentService) {}
