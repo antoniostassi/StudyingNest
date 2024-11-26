@@ -1,11 +1,19 @@
 import { Injectable } from '@nestjs/common';
 import { CreateApartmentDto } from './dto/apartment-create.dto';
+import { Repository } from 'typeorm';
+import { Apartment } from './entity/apartment.entity';
+import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class ApartmentService {
 
-    public index() {
-        return 'Endpoint to get all apartments';
+    constructor(
+        @InjectRepository(Apartment)
+        private apartmentRepository: Repository<Apartment>
+    ) { }
+
+    public index(): Promise<Apartment[]> {
+        return this.apartmentRepository.find();
     }
 
     public show(apartmentId: number) {
