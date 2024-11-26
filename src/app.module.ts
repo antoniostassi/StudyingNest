@@ -5,6 +5,7 @@ import { AppService } from './app.service';
 // Apartment
 import { ApartmentModule } from './apartment/apartment.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Apartment } from './apartment/entity/apartment.entity';
 
 @Module({
   imports: [ApartmentModule,
@@ -15,11 +16,12 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       username: 'root',
       password: 'root',
       database: 'nestjs',
-      entities: [],
+      entities: [Apartment],
       synchronize: true,
     }),
   ],
   controllers: [AppController],
   providers: [AppService],
 })
+
 export class AppModule {}
