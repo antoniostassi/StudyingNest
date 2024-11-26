@@ -11,12 +11,12 @@ export class ApartmentService {
         return 'Endpoint to get single apartment at ID: ' + apartmentId;
     }
 
-    public store(req: Request) {
-        return req.body; // Request body
+    public store(body: string) {
+        return body; // Request body
     }
 
-    public update(apartmentId: number, req: Request) {
-        return 'Endpoint to update ' + apartmentId + ' with body: ' + req.body;
+    public update(apartmentId: number, body: string) {
+        return 'Endpoint to update ' + apartmentId + ' with body: ' + body;
     }
 
     public delete(apartmentId: number) {
