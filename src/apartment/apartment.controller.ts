@@ -1,7 +1,7 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post, Req } from '@nestjs/common';
+import { Controller, Delete, Get, Param, Patch, Post, Req } from '@nestjs/common';
 
-@Controller('apartments')
-export class ApartmentsController {
+@Controller('apartment')
+export class ApartmentController {
 
     @Get()
     index() {
