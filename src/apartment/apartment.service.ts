@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { CreateApartmentDto } from './dto/apartment-create.dto';
 
 @Injectable()
 export class ApartmentService {
@@ -11,12 +12,12 @@ export class ApartmentService {
         return 'Endpoint to get single apartment at ID: ' + apartmentId;
     }
 
-    public store(body: string) {
-        return body; // Request body
+    public store(createApartmentDto: CreateApartmentDto) {
+        return createApartmentDto; // Request body
     }
 
-    public update(apartmentId: number, body: string) {
-        return 'Endpoint to update ' + apartmentId + ' with body: ' + body;
+    public update(apartmentId: number, updateApartmentDto: CreateApartmentDto) {
+        return 'Endpoint to update ' + apartmentId + ' with body: ' + updateApartmentDto;
     }
 
     public delete(apartmentId: number) {

@@ -1,5 +1,6 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, Req } from '@nestjs/common';
 import { ApartmentService } from './apartment.service';
+import { CreateApartmentDto } from './dto/apartment-create.dto';
 
 @Controller('apartments')
 export class ApartmentController {
@@ -17,13 +18,13 @@ export class ApartmentController {
     }
 
     @Post()
-    store(@Body() body: string) {
-        return this.apartmentService.store(body);
+    store(@Body() createApartmentDto: CreateApartmentDto) {
+        return this.apartmentService.store(createApartmentDto);
     }
 
     @Patch('/:apartmentId')
-    update(@Body() body: string, @Param() param: { apartmentId: number }) {
-        return this.apartmentService.update(param.apartmentId, body);
+    update(@Body() updateApartmentDto: CreateApartmentDto, @Param() param: { apartmentId: number }) {
+        return this.apartmentService.update(param.apartmentId, updateApartmentDto);
     }
 
     @Delete('/:apartmentId')
