@@ -1,6 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity()
+@Entity() // It represents the Migration 
 export class Apartment {
     @PrimaryGeneratedColumn()
     id: number;
@@ -11,27 +11,27 @@ export class Apartment {
     @Column()
     address: string;
 
-    @Column()
+    @Column({ default: '' })
     image: string;
 
-    @Column()
+    @Column({ default: 1 })
     rooms: number;
 
-    @Column()
+    @Column({ default: 1 })
     beds: number;
 
-    @Column()
+    @Column({ default: 3 })
     bathrooms: number;
 
-    @Column()
+    @Column({ default: 3 })
     apartment_size: number;
 
-    @Column()
+    @Column('decimal', { precision: 11, scale: 5, default: 3.3 })
     latitude: number;
 
-    @Column()
+    @Column('decimal', { precision:11, scale:5, default: 3.5 })
     longitude: number;
 
-    @Column()
+    @Column({ default: true })
     is_visible: boolean;
 }
