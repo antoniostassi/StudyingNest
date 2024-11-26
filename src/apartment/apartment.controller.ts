@@ -12,8 +12,8 @@ export class ApartmentController {
     }
 
     @Get('/:apartmentId')
-    show(@Param() params: { apartmentId: number }) {
-        return this.apartmentService.show(params.apartmentId);
+    show(@Param() param: { apartmentId: number }) {
+        return this.apartmentService.show(param.apartmentId);
     }
 
     @Post()
@@ -22,13 +22,13 @@ export class ApartmentController {
     }
 
     @Patch('/:apartmentId')
-    update(@Body() body: string, @Param() params: { apartmentId: number }) {
-        return this.apartmentService.update(params.apartmentId, body);
+    update(@Body() body: string, @Param() param: { apartmentId: number }) {
+        return this.apartmentService.update(param.apartmentId, body);
     }
 
     @Delete('/:apartmentId')
-    delete(@Param() params: { apartmentId: number }) {
-        return this.apartmentService.delete(params.apartmentId);
+    delete(@Param() param: { apartmentId: number }) {
+        return this.apartmentService.delete(param.apartmentId);
     }
 
     // @Req | Il body è ciò che manda il frontend. 
