@@ -1,4 +1,4 @@
-import { Controller, Delete, Get, Param, Patch, Post, Req } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, Req } from '@nestjs/common';
 import { ApartmentService } from './apartment.service';
 
 @Controller('apartments')
@@ -17,13 +17,13 @@ export class ApartmentController {
     }
 
     @Post()
-    store(@Req() req: Request) {
-        return this.apartmentService.store(req);
+    store(@Body() body: string) {
+        return this.apartmentService.store(body);
     }
 
     @Patch('/:apartmentId')
-    update(@Req() req: Request, @Param() params: { apartmentId: number }) {
-        return this.apartmentService.update(params.apartmentId, req);
+    update(@Body() body: string, @Param() params: { apartmentId: number }) {
+        return this.apartmentService.update(params.apartmentId, body);
     }
 
     @Delete('/:apartmentId')
