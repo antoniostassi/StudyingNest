@@ -16,20 +16,20 @@ export class ApartmentService {
         return this.apartmentRepository.find();
     }
 
-    public show(apartmentId: number) {
-        return 'Endpoint to get single Apartment ID: ' + apartmentId;
+    public show(apartmentId: number): Promise<Apartment> {
+        return this.apartmentRepository.findOne({ where: { id: apartmentId } });
     }
 
     public store(createApartmentDto: CreateApartmentDto) {
         this.apartmentRepository.save(createApartmentDto); // Save the apartment
-        return { message:'success', status:'ok' }
+        return { message: 'success', status: 'ok' }
     }
 
     public update(apartmentId: number, updateApartmentDto: CreateApartmentDto) {
-        return 'Endpoint to update Apartment ID:' + apartmentId + ' with body: ' + updateApartmentDto;
+        return this.apartmentRepository.update(apartmentId, updateApartmentDto);
     }
 
     public delete(apartmentId: number) {
-        return 'Endpoint to delete Apartment ID: ' + apartmentId;
+        return this.apartmentRepository.delete(apartmentId);
     }
 }
