@@ -21,7 +21,8 @@ export class ApartmentService {
     }
 
     public store(createApartmentDto: CreateApartmentDto) {
-        return this.apartmentRepository.save(createApartmentDto); // Save the apartment
+        this.apartmentRepository.save(createApartmentDto); // Save the apartment
+        return { message:'success', status:'ok' }
     }
 
     public update(apartmentId: number, updateApartmentDto: CreateApartmentDto) {
