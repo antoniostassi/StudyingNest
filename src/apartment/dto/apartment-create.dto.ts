@@ -1,7 +1,8 @@
-import { IsBoolean, IsNumber, IsString } from "class-validator";
+import { IsBoolean, IsDefined, IsNumber, IsString } from "class-validator";
 
 export class CreateApartmentDto {
     @IsString()
+    @IsDefined() // = required
     title: string;
 
     @IsString()

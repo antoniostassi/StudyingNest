@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post, Req } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, Req } from '@nestjs/common';
 import { ApartmentService } from './apartment.service';
 import { CreateApartmentDto } from './dto/apartment-create.dto';
 
@@ -13,8 +13,8 @@ export class ApartmentController {
     }
 
     @Get('/:apartmentId')
-    show(@Param() param: { apartmentId: number }) {
-        return this.apartmentService.show(param.apartmentId);
+    show(@Param('apartmentId', ParseIntPipe) apartmentId: number) {
+        return this.apartmentService.show(apartmentId);
     }
 
     @Post()
@@ -23,13 +23,13 @@ export class ApartmentController {
     }
 
     @Patch('/:apartmentId')
-    update(@Body() updateApartmentDto: CreateApartmentDto, @Param() param: { apartmentId: number }) {
-        return this.apartmentService.update(param.apartmentId, updateApartmentDto);
+    update(@Body() updateApartmentDto: CreateApartmentDto, @Param('apartmentId', ParseIntPipe) apartmentId: number) {
+        return this.apartmentService.update(apartmentId, updateApartmentDto);
     }
 
     @Delete('/:apartmentId')
-    delete(@Param() param: { apartmentId: number }) {
-        return this.apartmentService.delete(param.apartmentId);
+    delete(@Param('apartmentId', ParseIntPipe) apartmentId: number) {
+        return this.apartmentService.delete(apartmentId);
     }
 
     // @Req | Il body è ciò che manda il frontend. 

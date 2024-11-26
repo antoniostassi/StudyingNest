@@ -9,7 +9,7 @@ export class ApartmentService {
     }
 
     public show(apartmentId: number) {
-        return 'Endpoint to get single apartment at ID: ' + apartmentId;
+        return 'Endpoint to get single Apartment ID: ' + apartmentId;
     }
 
     public store(createApartmentDto: CreateApartmentDto) {
@@ -17,10 +17,10 @@ export class ApartmentService {
     }
 
     public update(apartmentId: number, updateApartmentDto: CreateApartmentDto) {
-        return 'Endpoint to update ' + apartmentId + ' with body: ' + updateApartmentDto;
+        return 'Endpoint to update Apartment ID:' + apartmentId + ' with body: ' + updateApartmentDto;
     }
 
     public delete(apartmentId: number) {
-        return 'Endpoint to delete ' + apartmentId;
+        return 'Endpoint to delete Apartment ID: ' + apartmentId;
     }
 }
