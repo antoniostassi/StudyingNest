@@ -1,7 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity() // It represents the Migration 
-export class Apartment {
+export class Apartments {
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -33,5 +33,5 @@ export class Apartment {
     longitude: number;
 
     @Column({ default: true })
-    is_visible: boolean;
+    is_visible: string;
 }

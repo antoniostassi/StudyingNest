@@ -32,7 +32,8 @@ export class ApartmentController {
         return this.apartmentService.delete(apartmentId);
     }
 
-    // @Req | Il body è ciò che manda il frontend. 
+    // @Req | La richiesta è ciò che manda il frontend. 
+    // @Body | Il body della richiesta.
     // @Param | Le query ( detti Params ) contengono quei dati passati nell'URL: http://localhost:3000/apartments?user=palo
     // L'header viene usato per inviare chiavi, token etc. (XSRF-TOKEN su LARAVEL)
 
