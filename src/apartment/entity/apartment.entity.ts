@@ -33,5 +33,5 @@ export class Apartments {
     longitude: number;
 
     @Column({ default: true })
-    is_visible: string;
+    is_visible: boolean;
 }

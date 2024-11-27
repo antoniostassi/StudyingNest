@@ -29,6 +29,6 @@ export class CreateApartmentDto {
     @IsNumber()
     longitude: number;
 
-    @IsString()
-    is_visible: string;
+    @IsBoolean()
+    is_visible: boolean;
 }
