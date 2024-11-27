@@ -5,18 +5,18 @@ import { AppService } from './app.service';
 // Apartment
 import { ApartmentModule } from './apartment/apartment.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Apartment } from './apartment/entity/apartment.entity';
+import { Apartments } from './apartment/entity/apartment.entity';
 
 @Module({
   imports: [ApartmentModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
-      port: 3306,
+      port: 8889,
       username: 'root',
       password: 'root',
       database: 'nestjs',
-      entities: [Apartment],
+      entities: [Apartments],
       synchronize: true,
     }),
   ],
